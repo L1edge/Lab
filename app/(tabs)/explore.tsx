@@ -9,9 +9,9 @@ import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
 import { IconSymbol } from "@/components/ui/icon-symbol";
 import { Fonts } from "@/constants/theme";
-import * as Elements1 from "@/constants/elements1-lab1";
-import * as Elements2 from "@/constants/elements2-lab1";
-import * as Elements3 from "@/constants/elements3-lab1";
+import * as Elements1 from "@/constants/lab1/elements1-lab1";
+import * as Elements2 from "@/constants/lab1/elements2-lab1";
+import * as Elements3 from "@/constants/lab1/elements3-lab1";
 
 export default function TabTwoScreen() {
   return (
