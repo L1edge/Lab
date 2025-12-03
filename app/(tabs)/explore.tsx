@@ -13,6 +13,12 @@ import * as Elements1 from "@/constants/lab1/elements1-lab1";
 import * as Elements2 from "@/constants/lab1/elements2-lab1";
 import * as Elements3 from "@/constants/lab1/elements3-lab1";
 
+import * as Lab2Task1 from "@/constants/lab2/elements1-lab2";
+import * as Lab2Task2 from "@/constants/lab2/elements2-lab2";
+import * as Lab2Task3 from "@/constants/lab2/elements3-lab2";
+
+import Lab3 from '@/components/components-lab3';
+
 export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
@@ -28,7 +34,7 @@ export default function TabTwoScreen() {
     >
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title" style={{ fontFamily: Fonts.rounded }}>
-          Lab works
+          Labs
         </ThemedText>
       </ThemedView>
 
@@ -77,23 +83,59 @@ export default function TabTwoScreen() {
       </Collapsible>
 
       <Collapsible title="Lab 2">
-        <ThemedText>Tasks</ThemedText>
+        <ThemedView>
+            <ThemedText style={{ fontWeight: "700" }}>Task 1 (Arrays)</ThemedText>
+            
+            {/* Проходимось по всіх експортах з файлу elements1-lab2 */}
+            {Object.entries(Lab2Task1).map(([key, value]) => (
+                <ThemedView key={key} style={{ marginBottom: 4 }}>
+                    <ThemedText style={{ color: '#888', fontSize: 12 }}>{key}:</ThemedText>
+                    <ThemedText>
+                        {/* Перевірка: якщо масив, з'єднати коми, інакше перетворити в рядок */}
+                        {Array.isArray(value) ? `[${value.join(', ')}]` : String(value)}
+                    </ThemedText>
+                </ThemedView>
+            ))}
+              {/* --- TASK 2 (Sets) --- */}
+              <ThemedText style={{ fontWeight: "700", marginTop: 10 }}>Task 2 (Sets)</ThemedText>
+
+              {Object.entries(Lab2Task2).map(([key, value]) => (
+                <ThemedView key={key} style={{ marginBottom: 4 }}>
+                  <ThemedText style={{ color: '#888', fontSize: 12 }}>{key}:</ThemedText>
+                  <ThemedText>
+                    {/* ПЕРЕВІРКА: Якщо це Set -> перетворюємо в масив -> з'єднуємо комою */}
+                    {value instanceof Set 
+                      ? `{ ${Array.from(value).join(', ')} }` 
+                      : Array.isArray(value) 
+                        ? `[${value.join(', ')}]` 
+                        : String(value)}
+                  </ThemedText>
+                </ThemedView>
+              ))}
+
+
+                {/* --- TASK 3: Dictionaries (НОВЕ) --- */}
+                    <ThemedText style={{ fontWeight: "700", marginTop: 10 }}>Task 3 (Dictionaries)</ThemedText>
+                    {Object.entries(Lab2Task3).map(([key, value]) => (
+                      <ThemedView key={key} style={{ marginBottom: 4 }}>
+                        <ThemedText style={{ color: '#888', fontSize: 12 }}>{key}:</ThemedText>
+                        <ThemedText>
+                            {/* Перевірка: якщо це об'єкт (але не null і не масив), виводимо як JSON */}
+                            {typeof value === 'object' && value !== null && !Array.isArray(value)
+                                ? JSON.stringify(value).replace(/,/g, ', ') // Красивий JSON в один рядок
+                                : Array.isArray(value)
+                                    ? `[${value.join(', ')}]`
+                                    : String(value)
+                            }
+                        </ThemedText>
+                      </ThemedView>
+                    ))}
+        </ThemedView>
       </Collapsible>
 
       <Collapsible title="Lab 3">
         <ThemedText>Tasks</ThemedText>
-      </Collapsible>
-
-      <Collapsible title="Lab 4">
-        <ThemedText>Tasks</ThemedText>
-      </Collapsible>
-
-      <Collapsible title="Lab 5">
-        <ThemedText>Tasks</ThemedText>
-      </Collapsible>
-
-      <Collapsible title="Lab 6">
-        <ThemedText>Tasks</ThemedText>
+        <Lab3 />
       </Collapsible>
     </ParallaxScrollView>
   );

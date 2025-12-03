@@ -36,7 +36,11 @@ export const oddArray = [1, 3, 5, 7, 9];
 export const oddArray11 = [...oddArray, 11];
 
 // 10
-export const oddArray19 = [...oddArray11, 15, 17, 19];
+const tempArray11 = [...oddArray11];
+tempArray11.splice(6, 0, 15);
+tempArray11.splice(7, 0, 17);
+tempArray11.splice(8, 0, 19);
+export const oddArray19 = [...tempArray11];
 
 // 11
 // splice змінює масив, тому спочатку робимо копію
@@ -52,21 +56,26 @@ export const oddArrayPop = tempArrayPop;
 
 // 13
 
-export const oddArrayPopLast = oddArray.pop;
+const tempForLast = [...oddArrayPop]; 
+export const removedLastElement = tempForLast.pop(); // Отримуємо видалений елемент (19)
+const oddArrayPopLast = tempForLast;          // Отримуємо масив без нього
 
 // 14
 
-export const tempArray19pop = oddArray19.splice(1, 6);
+const tempArray19pop = oddArrayPopLast.splice(0, 6);
 export const Array19pop = [tempArray19pop, 2, 3, 4];
 
 // 15
 
-export const oddArrayminus3 = oddArray.splice(1, 1);
-
+const tempoddArrayminus3 = [...oddArray];
+tempoddArrayminus3.splice(1, 1);
+export const oddArrayminus3 = tempoddArrayminus3;
 // 16
 
 export const include3 = oddArrayminus3.includes(3);
 
 // 17
 
-export const oddArrayString = oddArray.toString;
+const tempoddArray = [oddArray];
+tempoddArray.toString
+export const oddArrayString = tempoddArray;
