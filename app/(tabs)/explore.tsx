@@ -19,6 +19,8 @@ import * as Lab2Task3 from "@/constants/lab2/elements3-lab2";
 
 import Lab3 from '@/components/components-lab3';
 
+import Lab2n1 from '@/components/lab2n1/components-lab2n1';
+
 export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
@@ -137,6 +139,12 @@ export default function TabTwoScreen() {
         <ThemedText>Tasks</ThemedText>
         <Lab3 />
       </Collapsible>
+
+      {/* --- НОВИЙ БЛОК ДЛЯ LAB 2 N1 (Geometry) --- */}
+      <Collapsible title="Lab 2.1 (OOP Geometry)">
+        <Lab2n1 />
+      </Collapsible>
+
     </ParallaxScrollView>
   );
 }
