@@ -141,7 +141,7 @@ export default function TabTwoScreen() {
       </Collapsible>
 
       {/* --- НОВИЙ БЛОК ДЛЯ LAB 2 N1 (Geometry) --- */}
-      <Collapsible title="Lab 2.1 (OOP Geometry)">
+      <Collapsible title="Lab 2.1-2.2">
         <Lab2n1 />
       </Collapsible>
 
